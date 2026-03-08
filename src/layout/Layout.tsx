@@ -17,12 +17,15 @@ const styles: Record<string, React.CSSProperties> = {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
-    background: "#020617",
-    color: "#ecfdf5",
+    /* Background is now handled globally by index.css body/::before */
+    background: "transparent",
+    color: "var(--text-primary)",
   },
   main: {
     flex: 1,
     overflowY: "auto",
     paddingBottom: 72,
+    position: "relative",
+    zIndex: 1,
   },
 };
