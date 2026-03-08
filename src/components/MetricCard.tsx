@@ -113,18 +113,9 @@ export default function MetricCard({
           lineHeight: 1.5,
         }}
       >
-        Avg: {safeAvg ?? "—"} | {deviationText}
+        Avg: {safeAvg ?? "—"}{" | "}{deviationText}
         <br />
         <span style={{ color: "rgba(6,182,212,0.5)" }}>↻ every 4s</span>
-      </small>
-    </div>
-  );
-}
-      <h2>{current !== null ? current : "—"}</h2>
-      <small>
-        Avg: {safeAvg ?? "—"} | {deviationText}
-        <br />
-        Updated every 4s
       </small>
     </div>
   );
