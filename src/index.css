@@ -1,163 +1,30 @@
-/* ================================================================
-   WATERIQ — GLOBAL DESIGN SYSTEM
-   Premium glassmorphism + dark atmospheric background
-   ================================================================ */
-
-/* ─── FONT IMPORT ─────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800;900&display=swap');
-
-/* ─── RESET ───────────────────────────────────────────────────── */
+/* ===== GLOBAL RESET ===== */
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
   padding: 0;
-}
-
-/* ================================================================
-   DESIGN TOKENS
-   ================================================================ */
-:root {
-  /* ── Background palette ── */
-  --bg-base:         #050608;
-  --bg-mid:          #0a0f14;
-  --bg-surface:      #0f1a22;
-  --bg-elevated:     #121e28;
-
-  /* ── Accent glow tones ── */
-  --glow-deep:       #0c2f4a;
-  --glow-mid:        #0c3b55;
-  --glow-bright:     #0f6a7a;
-  --glow-cyan:       #06b6d4;
-  --glow-blue:       #1d6fdc;
-
-  /* ── Glass card surface ── */
-  --glass-bg:        rgba(255, 255, 255, 0.04);
-  --glass-bg-hover:  rgba(255, 255, 255, 0.07);
-  --glass-border:    rgba(255, 255, 255, 0.09);
-  --glass-border-hover: rgba(6, 182, 212, 0.35);
-  --glass-blur:      20px;
-
-  /* ── Text ── */
-  --text-primary:    #e8f4f8;
-  --text-secondary:  #7b9aab;
-  --text-muted:      #3d5a6b;
-  --text-accent:     #06b6d4;
-
-  /* ── Glow shadows ── */
-  --shadow-card:     0 4px 24px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255,255,255,0.04) inset;
-  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.7), 0 0 28px rgba(6,182,212,0.12), 0 1px 0 rgba(255,255,255,0.06) inset;
-  --shadow-glow-sm:  0 0 16px rgba(6, 182, 212, 0.18);
-  --shadow-glow-md:  0 0 32px rgba(6, 182, 212, 0.22);
-
-  /* ── Radius ── */
-  --radius-sm:   8px;
-  --radius-md:   12px;
-  --radius-lg:   16px;
-  --radius-xl:   20px;
-
-  /* ── Spacing ── */
-  --gap-sm:  12px;
-  --gap-md:  20px;
-  --gap-lg:  28px;
-
-  /* ── Transition ── */
-  --transition-base: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: all 0.15s ease;
-
-  /* ── Typography ── */
-  --font-display: 'Syne', system-ui, sans-serif;
-  --font-mono:    'DM Mono', 'Courier New', monospace;
-  --font-body:    'Syne', system-ui, sans-serif;
-}
-
-/* ================================================================
-   GLOBAL BODY — ATMOSPHERIC BACKGROUND
-   ================================================================ */
-html, body, #root {
   min-height: 100vh;
-  font-family: var(--font-body);
-  color: var(--text-primary);
-  background-color: var(--bg-base);
+  background: #020b18;
+  color: #e2e8f0;
+  font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  /* Layered atmospheric gradient — references the image's deep dark + cyan tones */
-  background:
-    /* Layer 1: Noise texture overlay */
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E"),
-    /* Layer 2: Radial glow accent — top right */
-    radial-gradient(ellipse 65% 55% at 78% 8%, rgba(12, 59, 85, 0.55) 0%, transparent 60%),
-    /* Layer 3: Radial glow accent — bottom left */
-    radial-gradient(ellipse 55% 50% at 15% 85%, rgba(12, 47, 74, 0.45) 0%, transparent 58%),
-    /* Layer 4: Subtle center depth pulse */
-    radial-gradient(ellipse 80% 60% at 50% 45%, rgba(15, 26, 34, 0.8) 0%, transparent 70%),
-    /* Layer 5: Base gradient */
-    linear-gradient(160deg, #060a10 0%, #080d14 30%, #050c12 65%, #040810 100%);
-  background-size: 512px 512px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-  background-attachment: fixed;
-}
-
-/* ================================================================
-   GLOBAL BACKGROUND FIXED LAYER
-   (Animated aurora accents applied via a pseudo-element so it
-    works across all pages without touching page-level wrappers)
-   ================================================================ */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-
-  background:
-    /* Aurora sweep 1 */
-    radial-gradient(ellipse 110% 45% at 20% 75%, rgba(6, 182, 212, 0.07) 0%, transparent 55%),
-    /* Aurora sweep 2 */
-    radial-gradient(ellipse 80% 40% at 82% 18%, rgba(29, 111, 220, 0.08) 0%, transparent 52%),
-    /* Aurora sweep 3 */
-    radial-gradient(ellipse 60% 35% at 55% 92%, rgba(15, 106, 122, 0.06) 0%, transparent 50%);
-
-  animation: auroraShift 18s ease-in-out infinite alternate;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  /* Dot grid texture */
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.028) 1px, transparent 0);
-  background-size: 32px 32px;
-}
-
-@keyframes auroraShift {
-  0%   { transform: translate(0%,   0%)   scale(1);    opacity: 1;   }
-  33%  { transform: translate(3%,  -4%)   scale(1.04); opacity: 0.8; }
-  66%  { transform: translate(-3%,  3%)   scale(0.97); opacity: 1;   }
-  100% { transform: translate(2%,  -2%)   scale(1.02); opacity: 0.85;}
-}
-
-/* ================================================================
-   ALL CONTENT ABOVE BODY PSEUDO-ELEMENTS
-   ================================================================ */
 #root {
-  position: relative;
-  z-index: 1;
+  min-height: 100vh;
 }
 
-/* ================================================================
-   GLOBAL TYPOGRAPHY RESET
-   ================================================================ */
-button { font-family: inherit; }
+button {
+  font-family: inherit;
+}
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.15;
+  font-weight: 600;
+  color: inherit;
+  margin: 0;
 }
 
 a {
@@ -165,182 +32,8 @@ a {
   text-decoration: none;
 }
 
-/* ================================================================
-   UTILITY CLASSES — GLASS SYSTEM
-   ================================================================ */
-
-/* Glass card base */
-.glass {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Top-edge specular highlight */
-.glass::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(6, 182, 212, 0.35) 25%,
-    rgba(255, 255, 255, 0.12) 50%,
-    rgba(6, 182, 212, 0.35) 75%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* Hover state */
-.glass:hover {
-  background: var(--glass-bg-hover);
-  border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* Interactive glass — scale lift */
-.glass-interactive {
-  cursor: pointer;
-  transform-origin: center;
-}
-
-.glass-interactive:hover {
-  transform: translateY(-3px) scale(1.01);
-}
-
-/* Floating glass panel (no hover effect, just elevated look) */
-.glass-panel {
-  background: rgba(10, 18, 28, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 8px 48px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(6,182,212,0.06) inset,
-    0 1px 0 rgba(255,255,255,0.06) inset;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Thick frosted glass — maximum depth */
-.glass-thick {
-  background: rgba(8, 16, 24, 0.78);
-  border: 1px solid rgba(6, 182, 212, 0.14);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 12px 60px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(6, 182, 212, 0.06),
-    0 0 0 1px rgba(255,255,255,0.04) inset;
-}
-
-/* Blue-gradient border accent (for featured cards) */
-.glass-accent {
-  border: 1px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-}
-
-.glass-accent::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    rgba(29, 111, 220, 0.35),
-    rgba(6, 182, 212, 0.25),
-    rgba(20, 60, 120, 0.4)
-  );
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* ================================================================
-   SIDEBAR GLASS OVERRIDE
-   ================================================================ */
-aside.glass-sidebar {
-  background: rgba(5, 10, 16, 0.82) !important;
-  backdrop-filter: blur(32px) saturate(180%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%);
-  border-right: 1px solid rgba(6, 182, 212, 0.1) !important;
-}
-
-/* ================================================================
-   SCROLLBAR STYLING (all pages)
-   ================================================================ */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(6, 182, 212, 0.2);
-  border-radius: 99px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.4);
-}
-
-/* ================================================================
-   INPUT GLOBAL STYLE
-   ================================================================ */
-input, select, textarea {
-  font-family: var(--font-body);
-  color: var(--text-primary);
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--text-muted);
-}
-
-/* ================================================================
-   KEYFRAME LIBRARY
-   ================================================================ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 12px rgba(6, 182, 212, 0.2); }
-  50%       { box-shadow: 0 0 28px rgba(6, 182, 212, 0.45); }
-}
-
-@keyframes liveDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(0.85); }
-}
-
-@keyframes slideReveal {
-  from { opacity: 0; transform: translateX(-8px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-.anim-fade-up        { animation: fadeUp 0.4s ease both; }
-.anim-fade-in        { animation: fadeIn 0.3s ease both; }
-.anim-glow-pulse     { animation: glowPulse 2.4s ease infinite; }
-.anim-live-dot       { animation: liveDot 1.4s ease infinite; }
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(56,189,248,0.18); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(56,189,248,0.35); }

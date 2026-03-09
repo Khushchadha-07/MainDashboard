@@ -1,29 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 
-/**
- * Layout.tsx
- * - Bottom navigation removed (Task 7)
- * - No background override — pages control their own backgrounds
- */
 export default function Layout() {
   return (
-    <div style={styles.root}>
-      <main style={styles.main}>
+    <div style={{ display:"flex", minHeight:"100vh", background:"#020b18" }}>
+      <Sidebar />
+      <main style={{ flex:1, overflowY:"auto", overflowX:"hidden", display:"flex", flexDirection:"column" }}>
         <Outlet />
       </main>
     </div>
   );
 }
-
-const styles: Record<string, React.CSSProperties> = {
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-    color: "#ecfdf5",
-  },
-  main: {
-    flex: 1,
-    overflowY: "auto",
-  },
-};
