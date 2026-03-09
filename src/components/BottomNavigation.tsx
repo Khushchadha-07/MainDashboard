@@ -17,30 +17,30 @@ const IconDashboard: React.FC<{ active: boolean }> = ({ active }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <rect
       x="1.5" y="1.5" width="7" height="7" rx="1"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
-      fill={active ? "#22d3ee14" : "none"}
+      fill={active ? "#00e5ff14" : "none"}
       style={{ transition: "all 0.25s" }}
     />
     <rect
       x="11.5" y="1.5" width="7" height="7" rx="1"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
-      fill={active ? "#22d3ee14" : "none"}
+      fill={active ? "#00e5ff14" : "none"}
       style={{ transition: "all 0.25s" }}
     />
     <rect
       x="1.5" y="11.5" width="7" height="7" rx="1"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
-      fill={active ? "#22d3ee14" : "none"}
+      fill={active ? "#00e5ff14" : "none"}
       style={{ transition: "all 0.25s" }}
     />
     <rect
       x="11.5" y="11.5" width="7" height="7" rx="1"
-      stroke={active ? "#34d399" : "#1a3a55"}
+      stroke={active ? "#00ff9d" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
-      fill={active ? "#34d39918" : "none"}
+      fill={active ? "#00ff9d18" : "none"}
       style={{ transition: "all 0.25s" }}
     />
   </svg>
@@ -50,12 +50,12 @@ const IconLive: React.FC<{ active: boolean }> = ({ active }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <circle
       cx="10" cy="10" r="3"
-      fill={active ? "#22d3ee" : "#1a3a55"}
+      fill={active ? "#00e5ff" : "#2a5068"}
       style={{ transition: "all 0.25s" }}
     />
     <circle
       cx="10" cy="10" r="6"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth="1"
       strokeDasharray={active ? "2 2" : "1 3"}
       opacity={active ? 0.7 : 0.4}
@@ -63,13 +63,13 @@ const IconLive: React.FC<{ active: boolean }> = ({ active }) => (
     />
     <circle
       cx="10" cy="10" r="9"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth="0.75"
       opacity={active ? 0.35 : 0.15}
       style={{ transition: "all 0.25s" }}
     />
     {active && (
-      <circle cx="10" cy="10" r="3" fill="#22d3ee" opacity="0.5">
+      <circle cx="10" cy="10" r="3" fill="#00e5ff" opacity="0.5">
         <animate attributeName="r" values="3;8;3" dur="2s" repeatCount="indefinite" />
         <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite" />
       </circle>
@@ -81,19 +81,19 @@ const IconChamber: React.FC<{ active: boolean }> = ({ active }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path
       d="M10 2L18 6.5V13.5L10 18L2 13.5V6.5L10 2Z"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
-      fill={active ? "#22d3ee0a" : "none"}
+      fill={active ? "#00e5ff0a" : "none"}
       style={{ transition: "all 0.25s" }}
     />
     <path
       d="M10 2V18M2 6.5L18 13.5M18 6.5L2 13.5"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth="0.75"
       opacity={active ? 0.5 : 0.25}
       style={{ transition: "all 0.25s" }}
     />
-    <circle cx="10" cy="10" r="2" fill={active ? "#22d3ee" : "#1a3a55"} style={{ transition: "all 0.25s" }} />
+    <circle cx="10" cy="10" r="2" fill={active ? "#00e5ff" : "#2a5068"} style={{ transition: "all 0.25s" }} />
   </svg>
 );
 
@@ -101,7 +101,7 @@ const IconHistory: React.FC<{ active: boolean }> = ({ active }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <polyline
       points="3,15 7,9 10,12 13,7 17,5"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
       strokeLinejoin="round"
       strokeLinecap="round"
@@ -114,12 +114,12 @@ const IconHistory: React.FC<{ active: boolean }> = ({ active }) => (
         <circle
           key={i}
           cx={x} cy={ys[i]} r="1.5"
-          fill={active ? (i === 4 ? "#34d399" : "#22d3ee") : "#1a3a55"}
+          fill={active ? (i === 4 ? "#00ff9d" : "#00e5ff") : "#2a5068"}
           style={{ transition: "all 0.25s" }}
         />
       );
     })}
-    <line x1="3" y1="17" x2="17" y2="17" stroke={active ? "#22d3ee" : "#1a3a55"} strokeWidth="0.75" opacity="0.4" />
+    <line x1="3" y1="17" x2="17" y2="17" stroke={active ? "#00e5ff" : "#2a5068"} strokeWidth="0.75" opacity="0.4" />
   </svg>
 );
 
@@ -127,9 +127,9 @@ const IconSettings: React.FC<{ active: boolean }> = ({ active }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <circle
       cx="10" cy="10" r="2.5"
-      stroke={active ? "#22d3ee" : "#1a3a55"}
+      stroke={active ? "#00e5ff" : "#2a5068"}
       strokeWidth={active ? "1.5" : "1"}
-      fill={active ? "#22d3ee14" : "none"}
+      fill={active ? "#00e5ff14" : "none"}
       style={{ transition: "all 0.25s" }}
     />
     {Array.from({ length: 8 }).map((_, i) => {
@@ -142,7 +142,7 @@ const IconSettings: React.FC<{ active: boolean }> = ({ active }) => (
         <line
           key={i}
           x1={x1} y1={y1} x2={x2} y2={y2}
-          stroke={active ? "#22d3ee" : "#1a3a55"}
+          stroke={active ? "#00e5ff" : "#2a5068"}
           strokeWidth={active ? "1.5" : "1"}
           strokeLinecap="round"
           style={{ transition: "all 0.25s" }}
@@ -289,12 +289,12 @@ const STYLES = `
 
     background: linear-gradient(
       180deg,
-      rgba(2, 8, 20, 0.92) 0%,
-      rgba(2, 8, 22, 0.98) 100%
+      rgba(2, 11, 20, 0.92) 0%,
+      rgba(3, 12, 22, 0.98) 100%
     );
-    border-top: 1px solid rgba(34, 211, 238, 0.10);
+    border-top: 1px solid rgba(0, 229, 255, 0.10);
     box-shadow:
-      0 -1px 0 rgba(34, 211, 238, 0.06),
+      0 -1px 0 rgba(0, 229, 255, 0.06),
       0 -8px 32px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -308,8 +308,8 @@ const STYLES = `
     background-image:
       repeating-linear-gradient(
         90deg,
-        rgba(34, 211, 238, 0.025) 0px,
-        rgba(34, 211, 238, 0.025) 1px,
+        rgba(0, 229, 255, 0.025) 0px,
+        rgba(0, 229, 255, 0.025) 1px,
         transparent 1px,
         transparent calc(100% / 5)
       );
@@ -321,7 +321,7 @@ const STYLES = `
     position: absolute;
     top: 0;
     bottom: 0;
-    background: rgba(34, 211, 238, 0.045);
+    background: rgba(0, 229, 255, 0.045);
     transition: left 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
     pointer-events: none;
   }
@@ -346,11 +346,11 @@ const STYLES = `
   }
 
   .bnav__tab:focus-visible {
-    box-shadow: inset 0 0 0 1.5px rgba(34, 211, 238, 0.6);
+    box-shadow: inset 0 0 0 1.5px rgba(0, 229, 255, 0.6);
   }
 
   .bnav__tab--hover {
-    background: rgba(34, 211, 238, 0.028);
+    background: rgba(0, 229, 255, 0.028);
   }
 
   .bnav__tab--pressed {
@@ -370,10 +370,10 @@ const STYLES = `
   }
 
   .bnav__bar--active {
-    background: linear-gradient(90deg, #22d3ee, #34d399);
+    background: linear-gradient(90deg, #00e5ff, #00ff9d);
     box-shadow:
-      0 0 8px rgba(34, 211, 238, 0.9),
-      0 0 20px rgba(34, 211, 238, 0.4);
+      0 0 8px rgba(0, 229, 255, 0.9),
+      0 0 20px rgba(0, 229, 255, 0.4);
     width: 64%;
   }
 
@@ -387,7 +387,7 @@ const STYLES = `
     height: 44px;
     background: radial-gradient(
       ellipse at 50% 30%,
-      rgba(34, 211, 238, 0.18) 0%,
+      rgba(0, 229, 255, 0.18) 0%,
       transparent 72%
     );
     pointer-events: none;
@@ -453,7 +453,7 @@ const STYLES = `
 
   /* Active label states */
   .bnav__tab--active .bnav__label  { color: #c8e8f8; font-weight: 700; }
-  .bnav__tab--active .bnav__sublabel { color: #22d3ee; opacity: 0.7; }
+  .bnav__tab--active .bnav__sublabel { color: #00e5ff; opacity: 0.7; }
 
   /* Hover label states */
   .bnav__tab--hover .bnav__label   { color: #3a7a9a; }
@@ -470,7 +470,7 @@ const STYLES = `
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(34, 211, 238, 0.04),
+      rgba(0, 229, 255, 0.04),
       transparent
     );
     pointer-events: none;
@@ -501,8 +501,8 @@ const STYLES = `
       transform: translateX(-50%);
       width: 640px;
       border-radius: 16px 16px 0 0;
-      border-left: 1px solid rgba(34, 211, 238, 0.10);
-      border-right: 1px solid rgba(34, 211, 238, 0.10);
+      border-left: 1px solid rgba(0, 229, 255, 0.10);
+      border-right: 1px solid rgba(0, 229, 255, 0.10);
     }
     .bnav::before {
       border-radius: 16px 16px 0 0;

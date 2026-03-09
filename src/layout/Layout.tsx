@@ -1,13 +1,28 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import BottomNavigation from "../components/BottomNavigation";
 
 export default function Layout() {
   return (
-    <div style={{ display:"flex", minHeight:"100vh", background:"#020b18" }}>
-      <Sidebar />
-      <main style={{ flex:1, overflowY:"auto", overflowX:"hidden", display:"flex", flexDirection:"column" }}>
+    <div style={styles.root}>
+      <main style={styles.main}>
         <Outlet />
       </main>
+      <BottomNavigation />
     </div>
   );
 }
+
+const styles: Record<string, React.CSSProperties> = {
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+    background: "transparent",
+    color: "#ecfdf5",
+  },
+  main: {
+    flex: 1,
+    overflowY: "auto",
+    paddingBottom: 72,
+  },
+};
